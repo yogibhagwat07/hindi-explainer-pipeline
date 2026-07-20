@@ -3,7 +3,9 @@
 Faceless AI YouTube explainer channel, aiming at YPP monetisation.
 Owner works in Hindi (Devanagari), on Windows, 20 GB RAM, **no credit card**.
 
-Last updated: 19 July 2026 (after the 3-repo study: gstack,
+Last updated: 20 July 2026 (§2 fetchclips row and §5.4 brought in line
+with the §4.5 live-verification note that was committed the same day).
+Previous update: 19 July 2026 (after the 3-repo study: gstack,
 OmniVoice-Studio, OpenMontage — see docs/STUDY-REPORT-19JUL.md and §3/§6).
 
 ---
@@ -52,7 +54,7 @@ goes online to download footage.
 | `wordedit.py` | word-snapped assembly, captions, both cuts | yes, end to end |
 | `gatekeeper.py` | compliance + variation gate, ledger | yes, 5 cases |
 | `qc.py` | **NEW** post-render quality gate | yes — self-test builds defect videos and verifies every check fires; the optional script round-trip path needs faster-whisper and is **NOT yet run** |
-| `fetchclips.py` | **NEW** free stock b-roll + license ledger + CREDITS.txt + thumbnails | license logic, ledger, credits, thumbnails, dedupe: yes (offline mock end-to-end). **Network adapters NO** — written offline; endpoints copied from a working July-2026 project (see §3) |
+| `fetchclips.py` | **NEW** free stock b-roll + license ledger + CREDITS.txt + thumbnails | license logic, ledger, credits, thumbnails, dedupe: yes (offline mock end-to-end). Network: **3 of 5 sources verified live 20 Jul** (Wikimedia, NASA, archive.org) — see §4.5. Pexels/Pixabay unverified (need free keys); the real download + thumbnail + ledger path is still unverified |
 | `hindi_text.py` | **NEW** Devanagari-aware sentence split + speech-length estimate + calibration | yes, self-test all pass |
 | `setup_windows.bat` | one-click installer | **NO — never run on Windows**; also does not yet install the new files' needs (requests) |
 | `project.example.json` | scene/overlay format template | yes |
@@ -204,8 +206,12 @@ then `python qc.py --self-test`.
    The official page still showed the July-2025 text when last checked.
    Until confirmed, behave as if it is true (it is the conservative
    reading anyway).
-4. **fetchclips first live run** — verify each of the five sources
-   actually returns and downloads (see §4.5).
+4. **fetchclips first live run from the machine.** The search/metadata
+   half of Wikimedia, NASA and archive.org answered live on 20 Jul
+   (§4.5) — but from a browser, not from fetchclips.py itself.
+   Remaining: the two free keys (Pexels, Pixabay), then one real
+   end-to-end download that writes a clip, a thumbnail and a ledger
+   entry to disk.
 5. ~~Where do visuals come from?~~ **Closed 19 Jul** (§3).
 6. ~~How does publishing happen?~~ **Closed 19 Jul** (§3).
 7. ~~Telegram bot?~~ Closed earlier: no bot at 2/week.
