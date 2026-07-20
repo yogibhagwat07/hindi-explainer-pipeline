@@ -1,0 +1,42 @@
+# secrets - kabhi commit nahi
+.env
+*.key
+*.token
+
+# bade media files
+*.wav
+*.mp3
+*.mp4
+*.mov
+*.webm
+*.png
+*.jpg
+*.jpeg
+
+# pipeline output
+out/
+clips_raw/
+clips/
+thumbs/
+frames/
+qc_*/
+upload_pack/
+vo_timings.json
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# models - bahut bade, git mein kabhi nahi
+models/
+*.onnx
+*.safetensors
+*.gguf
+
+# editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
