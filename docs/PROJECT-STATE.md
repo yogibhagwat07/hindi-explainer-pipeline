@@ -166,10 +166,18 @@ Be honest about these; do not let them get quietly assumed:
 4. **Kokoro's Hindi quality** — unverified; the fallback path exists but
    its own three unknowns (weights licence, CPU speed, Hindi quality)
    are also unverified.
-5. **fetchclips.py network adapters** — endpoints and response shapes
-   were taken from OpenMontage's working July-2026 adapters, but this
-   code has never touched the network. First real command:
-   `python fetchclips.py --doctor --net`, then one tiny search.
+5. **fetchclips.py network adapters** — PARTLY VERIFIED 20 Jul
+   2026, live from a browser: the three keyless sources all answered and
+   returned a real playable file. Wikimedia search -> imageinfo URL +
+   LicenseShortName (first hit was "CC BY-SA 4.0", which our default rule
+   skips — expect fewer usable Wikimedia clips than the hit count
+   suggests). NASA search -> collection.json -> mp4 list; the item tested
+   had no `~orig.mp4`, so the `~orig`/`~large`/`~medium`/first fallback
+   chain matters and works. archive.org advancedsearch -> /metadata/{id}
+   -> .mp4 + licenseurl, all present. STILL UNVERIFIED: Pexels and
+   Pixabay (need the free API keys), and the download + thumbnail +
+   ledger path against real remote files. First real command remains
+   `python fetchclips.py --doctor --net`.
 6. **qc.py script round-trip** — the transcription-vs-script check needs
    faster-whisper and has only been exercised down its SKIP path.
 7. **Manim on Windows** — not installed anywhere yet; Devanagari font
